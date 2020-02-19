@@ -1,23 +1,110 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <h2 id="title">Local Storage - JavaScript</h2>
-    <fieldset>
-      <legend>Insert Date</legend>
-      <input id="inputKey" type="text" placeholder="Enter Key...">
-      <input id="inputValue" type="text" placeholder="Enter Value...">  
-      <button type="button" id="buttonInsert">Insert Date</button>
-    </fieldset>
-    <fieldset>
-      <legend>Local Storage</legend>
-        <div class="lsOutput">
-        </div>
-    </fieldset>
-  </body>
-  <script src="script.js"></script>
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>Store the JavaScript</title>
+       
+        <style media ="screen"> 
+
+
+            input, button{
+                padding: 7px;
+                height: 25px;
+                position: center;
+            }
+
+
+            fieldset{
+                    margin-bottom: 20 px;
+            }
+        </style>
+    </head>
+
+
+    
+
+
+    <body>
+        <h2 id="title"> Local Storage - JavaScript </h2>
+       
+        <fieldset>
+            <legend> Insert Data </legend>
+                    <input id="inpKey" type = "text" placeholder="Enter key ...">
+
+
+                    <input id = "inpValue" type="text" placeholder="Enter value...">
+
+
+                    <button type="button" id="btnInsert" onClick="handleClick();"> Insert Data </button>
+
+
+        </fieldset>
+
+
+
+        <fieldset>
+            <legend> Local Storage Result: </legend>
+            <div id = "lsOutput"></div>
+        </fieldset>
+        
+    </body>
+
+
+    <script type= "text/JavaScript">
+      
+        console.log(localStorage);
+ 
+       const inpKey = document.getElementById("inpKey");
+ 
+       const intValue = document.getElementById("inpValue");
+ 
+       const btnInsert = document.getElementById("btnInsert");
+ 
+       const lsOutput = document.getElementById("lsOutput");
+
+
+       const clean = document.getElementById("clean");
+ 
+       console.log(btnInsert)
+    
+
+
+       function handleClick() {
+           
+          
+           const key = inpKey.value;
+ 
+           const value = intValue.value;
+ 
+            console.log(key);
+ 
+            console.log(value);
+ 
+            if(key && value) {
+                localStorage.setItem(key, value);
+                location.reload();
+            }
+       };
+ 
+       for(let i = 0; i< localStorage.length; i++){
+           
+           const key = localStorage.key(i);
+           const value = localStorage.getItem(key);
+ 
+           lsOutput.innerHTML += `key: ${key}: value ${value} </br>`;
+           lsOutput.innerHTML += `--------------- </br>`
+       } 
+
+
+    
+
+
+       }
+ 
+// working well       
+     </script>
+    
 </html>
