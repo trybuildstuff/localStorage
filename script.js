@@ -7,6 +7,9 @@ buttonInsert.onclick = function () {
   const key = inputKey.value;
   const value = inputValue.value;
   
+  console.log(key);
+  console.log(value);
+  
   if (key && value) {
     localStorage.setItem(key, value);
     location.reload();
